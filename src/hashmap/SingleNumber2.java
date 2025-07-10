@@ -1,4 +1,4 @@
-package bitmaupulation;
+package hashmap;
 
 
 // find the number which has not occurred exactly thrice in the array
