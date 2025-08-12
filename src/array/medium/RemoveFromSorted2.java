@@ -1,4 +1,4 @@
-/*
+package array.medium;/*
 Problem Statement:
 ------------------
 Given a **sorted array**, remove the duplicates **in-place** such that each unique element appears **at most twice**.
@@ -14,6 +14,12 @@ Output: 5, nums = [1, 1, 2, 2, 3, _]
 (Note: The values beyond the returned length `k` don't matter.)
 */
 
+/*
+Simple: {1,1,1}
+fo this  we will check i != (i-1) so it will return false since they are euqal so we won;t take that element (k)
+{0,0,1,1,1}   (i is starting from 2)
+for first two i the i-2 were not equal so we can keep them since they are appearing at most twice 
+ */
 
 public class RemoveFromSorted2 {
     public static int removeDuplicates(int[] nums) {

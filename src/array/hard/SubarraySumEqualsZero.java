@@ -1,3 +1,5 @@
+package array.hard;
+
 import java.util.HashMap;
 import java.util.Map;
 

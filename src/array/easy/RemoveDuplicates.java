@@ -1,5 +1,8 @@
+package array.easy;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class RemoveDuplicates {
     /*
 Problem Definition:
@@ -20,30 +23,40 @@ Assumptions:
 - The input array is sorted in non-decreasing order.
 - The output should be printed to the console as a List of unique integers.
 */
-        public static void removeDuplicate(int[] nums) {
-            List<Integer> list  = new ArrayList<>();
+    public static void removeDuplicate(int[] nums) {
+        List<Integer> list = new ArrayList<>();
 
-            int count =0;
-            for(int i=0;i<nums.length;i++){
-                if(i<nums.length-1 && nums[i]==nums[i+1] ){
-                    continue;
-                }
-                else{
-                    nums[count]=nums[i];
-                    list.add(nums[i]);
-                    count++;
-                }
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i < nums.length - 1 && nums[i] == nums[i + 1]) {
+                continue;
+            } else {
+                nums[count] = nums[i];
+                list.add(nums[i]);
+                count++;
             }
-            System.out.println(list);
-
         }
+        System.out.println(list);
 
-        public static void main(String[] args) {
-            int[] arr = {3,3,4,7,7,7};
-            removeDuplicate(arr);
-
-        }
     }
+
+    public int removeDuplicates(int[] nums) {
+
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
+            // skip dups
+            if (i < nums.length - 1 && nums[i] == nums[i + 1]) {
+                continue;
+            }
+            // if unique element found then add it ot the start (0,1,....)
+            else {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+        return k;
+    }
+}
 
 // Two pointers method first item in the array always be unique so we have to move from 2nd position then
 // we will check if nums[1] != nums[2] if yes then we will modify the nums array by putting the nums[j]=nums[i]

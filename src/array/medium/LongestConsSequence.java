@@ -1,4 +1,4 @@
-/*
+package array.medium;/*
 Given an unsorted array of integers nums, find the length of the longest consecutive elements sequence.
 You are allowed to assume that there may be duplicates in the array.
 

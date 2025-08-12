@@ -1,4 +1,4 @@
-// It's more two pointer approach
+package array.medium;// It's more two pointer approach
 
 /*
 Sort Colors
