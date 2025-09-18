@@ -7,66 +7,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class RemoveDuplicateNodes {
-    // ----------Brute Force --->>>>>>>>>>>>
-    public ListNode deleteDuplicates(ListNode head) {
-        Set<Integer> seen = new LinkedHashSet<>();
-        Set<Integer> duplicates = new HashSet<>();
-
-        ListNode temp = head;
-        while (temp != null) {
-            if (seen.contains(temp.val)) {
-                duplicates.add(temp.val);
-                seen.remove(temp.val);
-            } else if (!duplicates.contains(temp.val)) {
-                seen.add(temp.val);
-            }
-            temp = temp.next;
-        }
-
-        ListNode dummy = new ListNode(0);
-        ListNode curr = dummy;
-
-        for (int val : seen) {
-            curr.next = new ListNode(val);
-            curr = curr.next;
-        }
-
-        return dummy.next;
-    }
-
-    // ------- Optimal solution ---------->>>>>>>>>>>>>>.
-
-    public ListNode deleteDuplicates2(ListNode head) {
-        ListNode dummy = new ListNode(0);  // Dummy node before head
-        dummy.next = head;
-        ListNode prev = dummy;             // Pointer to last node without duplicates
-        ListNode curr = head;              // Pointer to scan the list
-
-        while (curr != null) {
-            // If current node has duplicates
-            if (curr.next != null && curr.val == curr.next.val) {
-                // Skip all nodes with the same value
-                while (curr.next != null && curr.val == curr.next.val) {
-                    curr = curr.next;
-                }
-                prev.next = curr.next; // Remove duplicates
-            } else {
-                prev = prev.next; // Move prev if no duplicate
-            }
-            curr = curr.next;
-        }
-
-        return dummy.next;
-    }
-
-    public void printList(ListNode head) {
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
-        }
-        System.out.println();
-    }
-
     public static void main(String[] args) {
         RemoveDuplicateNodes obj = new RemoveDuplicateNodes();
 
@@ -99,5 +39,60 @@ public class RemoveDuplicateNodes {
         ListNode noDups = obj.deleteDuplicates2(head2);
         System.out.print("After Removing Duplicates: ");
         obj.printList(noDups);
+    }
+
+    // ----------Brute Force --->>>>>>>>>>>>
+    public ListNode deleteDuplicates(ListNode head) {
+        Set<Integer> seen = new LinkedHashSet<>();
+        Set<Integer> duplicates = new HashSet<>();
+
+        ListNode temp = head;
+        while (temp != null) {
+            if (seen.contains(temp.val)) {
+                duplicates.add(temp.val);
+                seen.remove(temp.val);
+            } else if (!duplicates.contains(temp.val)) {
+                seen.add(temp.val);
+            }
+            temp = temp.next;
+        }
+
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+
+        for (int val : seen) {
+            curr.next = new ListNode(val);
+            curr = curr.next;
+        }
+
+        return dummy.next;
+    }
+
+    // ------- Optimal solution ---------->>>>>>>>>>>>>>.
+    public ListNode deleteDuplicates2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode curr = head;
+        ListNode nextNode = head.next;
+
+        while (curr != null && curr.next != null) {
+            if (curr.val == curr.next.val) {
+                curr.next = curr.next.next;
+            } else {
+                curr = curr.next;
+            }
+        }
+
+        return head;
+    }
+
+    public void printList(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+        System.out.println();
     }
 }

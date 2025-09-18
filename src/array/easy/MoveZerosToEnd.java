@@ -1,3 +1,5 @@
+package array.easy;
+
 public class MoveZerosToEnd {
     public static void moveZeroes(int[] nums) {
         int k = 0;

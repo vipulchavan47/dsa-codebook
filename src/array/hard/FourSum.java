@@ -1,3 +1,5 @@
+package array.hard;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,10 +35,10 @@ public class FourSum {
                         k++;
                         l--;
                         // Skip duplicate elements for the third number
-                        while (k < l && nums[k] == nums[k + 1]) k++;
+                        while (k < l && nums[k] == nums[k - 1]) k++;
 
                         // Skip duplicate elements for the fourth number
-                        while (k < l && nums[l] == nums[l - 1]) l--;
+                        while (k < l && nums[l] == nums[l + 1]) l--;
 
 
                     }

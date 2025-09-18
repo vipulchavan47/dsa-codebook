@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FirstUniqueCharacterInString {
-    public int firstUniqChar(String s) {
+    public int firstUniqueChar(String s) {
         Map<Character, Integer> map = new HashMap<>();
 
         for (char ch : s.toCharArray()) {
@@ -21,9 +21,9 @@ public class FirstUniqueCharacterInString {
     }
 }
 
-// Using Frequency arrray is more efficient than map but both are pretty much same
+// Using Frequency array is more efficient than map but both are pretty much same
 /*
-    public int firstUniqChar(String s) {
+    public int firstUniqueChar(String s) {
         int[] count = new int[26];
         for (int i = 0; i < s.length(); i++) {
             count[s.charAt(i) - 'a']++;
