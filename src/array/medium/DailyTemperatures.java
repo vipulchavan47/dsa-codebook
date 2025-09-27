@@ -34,12 +34,17 @@ public class DailyTemperatures {
     public int[] dailyTemperatures2(int[] temperatures) {
         int n = temperatures.length;
         int[] answer = new int[n];
+        // Monotonic decreasing stack
         Stack<Integer> st = new Stack<>(); // Store indices
 
         for (int i = 0; i < n; i++) {
             // While the current temp is higher than the temp at index on top of stack
+            // we will keep popping the temps till we found greater temp
+            //
             while (!st.isEmpty() && temperatures[i] > temperatures[st.peek()]) {
-                int prevIndex = st.pop();
+                int prevIndex = st.pop(); // we need the index for which we popped it from stack
+
+                // so we are going to store the answer at that index
                 answer[prevIndex] = i - prevIndex;
             }
             st.push(i); // Push current day's index

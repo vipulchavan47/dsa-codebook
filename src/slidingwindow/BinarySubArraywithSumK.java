@@ -1,4 +1,4 @@
-
+package slidingwindow;
 
 //Brute force solution
 /*
@@ -40,48 +40,50 @@ class BinarySubarraysWithSum {
 */
 
 // ------Optimal solution
-class Solution3 {
-    // Main function to find number of subarrays with exact sum = goal
-    public int numSubarraysWithSum(int[] nums, int goal) {
-        // We subtract the number of subarrays with sum <= (goal-1)
-        // from those with sum <= goal to get subarrays with sum == goal
-        return findAns(nums, goal) - findAns(nums, goal - 1);
-    }
 
-    // Helper function to find number of subarrays with sum <= goal
-    public int findAns(int[] arr, int goal) {
-        // If goal is negative, no subarray can have sum <= goal
-        if (goal < 0) {
-            return 0;
-        }
-
-        int count = 0;   // to store result (number of subarrays)
-        int l = 0;       // left pointer of the window
-        int r = 0;       // right pointer of the window
-        int sum = 0;     // current window sum
-
-        while (r < arr.length) {
-            sum += arr[r];  // add current element to window
-
-            // shrink window from left if sum exceeds goal
-            while (sum > goal) {
-                sum -= arr[l];
-                l++;
-            }
-
-            // at this point, all subarrays ending at r and starting from l to r are valid
-            // So we add (r - l + 1) to count
-            count += (r - l + 1);
-            r++; // move window forward
-        }
-
-        return count;
-    }
-}
 
 
 
 public class BinarySubArraywithSumK {
+    static class Solution3 {
+        // Main function to find number of subarrays with exact sum = goal
+        public int numSubarraysWithSum(int[] nums, int goal) {
+            // We subtract the number of subarrays with sum <= (goal-1)
+            // from those with sum <= goal to get subarrays with sum == goal
+            return findAns(nums, goal) - findAns(nums, goal - 1);
+        }
+
+        // Helper function to find number of subarrays with sum <= goal
+        public int findAns(int[] arr, int goal) {
+            // If goal is negative, no subarray can have sum <= goal
+            if (goal < 0) {
+                return 0;
+            }
+
+            int count = 0;   // to store result (number of subarrays)
+            int l = 0;       // left pointer of the window
+            int r = 0;       // right pointer of the window
+            int sum = 0;     // current window sum
+
+            while (r < arr.length) {
+                sum += arr[r];  // add current element to window
+
+                // shrink window from left if sum exceeds goal
+                while (sum > goal) {
+                    sum -= arr[l];
+                    l++;
+                }
+
+                // at this point, all subarrays ending at r and starting from l to r are valid
+                // So we add (r - l + 1) to count
+                count += (r - l + 1);
+                r++; // move window forward
+            }
+
+            return count;
+        }
+    }
+
     public static void main(String[] args) {
         int[] nums = {1,0,0,1,1,1};
         int k =2;
