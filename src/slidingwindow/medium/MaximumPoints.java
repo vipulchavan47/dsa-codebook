@@ -1,4 +1,4 @@
-/* Maximum Points You Can Obtain from Cards
+package slidingwindow.medium;/* Maximum Points You Can Obtain from Cards
 
 There are several cards arranged in a row, and each card has an associated number of points.
 The points are given in the integer array cardPoints.
