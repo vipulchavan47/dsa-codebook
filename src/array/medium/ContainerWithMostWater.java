@@ -49,6 +49,23 @@ public class ContainerWithMostWater {
         return maxArea; // Return the maximum area found
     }
 
+    // Brute force
+    public int maxArea2(int[] height) {
+        int n = height.length;
+        int maxArea = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int width = j - i;
+                int h = Math.min(height[i], height[j]);
+                int area = width * h;
+                maxArea = Math.max(maxArea, area);
+            }
+        }
+
+        return maxArea;
+    }
+
     public static void main(String[] args) {
         ContainerWithMostWater obj = new ContainerWithMostWater();
         int[] height = {1,8,6,2,5,4,8,3,7};
