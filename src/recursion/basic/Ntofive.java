@@ -1,3 +1,5 @@
+package recursion.basic;
+
 public class Ntofive {
     public static void main(String[] args) {
         printNum(5);

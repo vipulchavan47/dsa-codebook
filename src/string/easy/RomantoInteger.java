@@ -1,6 +1,5 @@
 package string.easy;
 
-import array.medium.SortColors;
 
 public class RomantoInteger {
     public static int romanToInt(String s) {

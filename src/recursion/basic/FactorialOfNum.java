@@ -1,3 +1,5 @@
+package recursion.basic;
+
 public class FactorialOfNum {
     public static void main(String[] args) {
         int ans = findFactorial(5);

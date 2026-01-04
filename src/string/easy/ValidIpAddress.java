@@ -9,7 +9,6 @@ Output: "1[.]1[.]1[.]1"
  */
 public class ValidIpAddress {
     public String defangIPaddr(String address) {
-        int n = address.length();
         StringBuilder sb = new StringBuilder();
 
         for (char ch : address.toCharArray()) {

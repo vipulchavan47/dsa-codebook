@@ -1,3 +1,4 @@
+package array.hard;
 import java.util.Arrays;
 
 public class MergeSortedArrays {

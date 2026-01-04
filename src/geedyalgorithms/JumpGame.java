@@ -1,4 +1,4 @@
-/*
+package geedyalgorithms;/*
 Problem Definition:
 -------------------
 You are given an array of non-negative integers `nums`. Each element in the array represents your
@@ -25,7 +25,6 @@ Approach:
 
 public class JumpGame {
     public static boolean canJump(int[] nums) {
-        // Track the maximum reachable position
         int maxReach = 0;
         int n = nums.length;
 
@@ -56,3 +55,20 @@ public class JumpGame {
         System.out.println("Can jump (nums2): " + canJump(nums2));
     }
 }
+
+
+/*
+    Step by step: why first condition is important
+    i = 0
+    maxReach = max(0, 0 + 3) = 3
+    i = 1
+    maxReach = max(3, 1 + 2) = 3
+    i = 2
+    maxReach = max(3, 2 + 1) = 3
+    i = 3
+    maxReach = max(3, 3 + 0) = 3
+    i = 4
+    ❌ i (4) > maxReach (3) → cannot reach index 4
+
+    So we immediately return false.
+ */

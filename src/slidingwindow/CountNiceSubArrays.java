@@ -1,3 +1,5 @@
+package slidingwindow;
+
 /*  Count Number of Nice Subarrays
 Input: nums = [1,1,2,1,1], k = 3
 Output: 2

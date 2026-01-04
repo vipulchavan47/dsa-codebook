@@ -1,3 +1,4 @@
+package array.medium;
 /*
 Rearrange Array Elements by Sign
 You are given a 0-indexed integer array nums of even length consisting of an equal number of

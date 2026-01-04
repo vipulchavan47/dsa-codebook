@@ -1,3 +1,5 @@
+package array.easy;
+
 public class MaxConsOnes {
     public static int findMaxConsecutiveOnes(int[] nums) {
         int maxCount =0;

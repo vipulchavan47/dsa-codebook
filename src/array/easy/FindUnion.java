@@ -1,3 +1,5 @@
+package array.easy;
+
 import java.util.ArrayList;
 
 // The problem statement can be described as follows: Given two integer arrays `a[]` and `b[]`,

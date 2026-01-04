@@ -7,7 +7,7 @@ Output: 6
 Explanation: [2,3] has the largest product 6.
  */
 
-import java.util.*;
+
 
 public class MaxProductSubarray {
 

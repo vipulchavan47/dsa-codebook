@@ -1,3 +1,5 @@
+package slidingwindow;
+
 //---   Brute force solution
 class MinWindowSubstr {
     public String minWindow(String s, String t) {

@@ -31,7 +31,6 @@ Final Answer: "()()()"
 public class RemoveOutermostParentheses {
 
     public static String removeOuterParentheses(String s) {
-        int n = s.length();  // Length of the input string
         int counter = 0;     // Keeps track of current depth (nesting level of parentheses)
         StringBuilder ans = new StringBuilder(); // Result string builder
 

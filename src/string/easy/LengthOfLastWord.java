@@ -20,7 +20,6 @@ public class LengthOfLastWord {
     // TC = O(N) ans SC = O(N)
     public int lengthOfLastWord(String s) {
         String str = s.trim();
-        int len = s.length();
 
         String[] words = str.split(" ");
 
