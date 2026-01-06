@@ -79,13 +79,4 @@ class MaxConsecutiveOnes {
 }
 
 
-public class MaximumConsOnes {
-    public static void main(String[] args) {
-        MaxConsecutiveOnes obj = new MaxConsecutiveOnes();
-        int[] nums = {1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0};
-        int k = 2;
 
-        int result = obj.longestOnes2(nums, k);
-        System.out.println("Maximum number of consecutive 1s with at most " + k + " flips: " + result);
-    }
-}

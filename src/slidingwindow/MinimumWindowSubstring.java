@@ -102,11 +102,3 @@ class MinWindowSubstr {
     }
 }
 
-public class MinimumWindowSubstring {
-    public static void main(String[] args) {
-        MinWindowSubstr s1 = new MinWindowSubstr();
-
-        String ans = s1.minWindow("ADOBECODEBANC", "ABC");
-        System.out.println(ans);
-    }
-}
