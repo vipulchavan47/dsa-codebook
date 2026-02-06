@@ -3,7 +3,7 @@ package trees.dfsproblems;
 import trees.TreeNode;
 
 
-// Pre-order: first invert left , right and then root
+// Post-order: first invert left , right and then root
 public class InvertTree {
     public TreeNode invertTree(TreeNode root) {
         // Base Case: if the current node is null, return null
