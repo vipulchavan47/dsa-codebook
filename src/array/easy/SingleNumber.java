@@ -20,16 +20,13 @@ public class SingleNumber {
         return -1;
 
     }
-    /*
-    public class SingleNumberOptimized {
-    public int singleNumber(int[] nums) {
+
+    public int singleNumberOptimal(int[] nums) {
         int result = 0;
         for (int num : nums) {
             result ^= num;
         }
         return result;
     }
-}
 
-     */
 }
