@@ -1,4 +1,4 @@
-package hashmap.easy;
+package array.easy;
 
 import java.util.*;
 
@@ -45,4 +45,40 @@ public class ToggleLightBulbs {
 
         return ans;
     }
+
+    // ------- Optimal ----------------
+        public List<Integer> toggleLightBulbsOptimal(List<Integer> bulbs) {
+
+            // Array used to track bulb state (ON/OFF)
+            // Size 101 assumes bulb numbers are between 0–100
+            int[] hashArr = new int[101];
+
+            List<Integer> ans = new ArrayList<>();
+
+            // Iterate through the input list of bulb toggles
+            for(int i = 0; i < bulbs.size(); i++){
+
+                // Check if this bulb is already marked as ON
+                if(hashArr[bulbs.get(i)] == bulbs.get(i)){
+
+                    // If it is ON, toggle it OFF by setting -1
+                    hashArr[bulbs.get(i)] = -1;
+                }
+                else{
+                    // If it is OFF (default 0),
+                    // toggle it ON by storing the bulb number
+                    hashArr[bulbs.get(i)] = bulbs.get(i);
+                }
+            }
+
+            // Traverse the hash array to collect bulbs that are ON
+            for(int n : hashArr){
+                // If value > 0, it means the bulb is currently ON
+                if(n > 0){
+                    ans.add(n);
+                }
+            }
+
+            return ans;
+        }
 }
