@@ -1,4 +1,5 @@
-package array.easy;// Given an unsorted array `nums` containing distinct integers from 1 to `n`,
+package array.easy;
+// Given an unsorted array `nums` containing distinct integers from 1 to `n`,
 // find and return the smallest positive integer that does not appear in the array.
 
 public class MissingNumber {

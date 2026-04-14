@@ -30,7 +30,7 @@ public class PlusOne {
                     return digits;   // no size change needed
                 }
 
-                digits[i] = 0; // carry continues
+                digits[i] = 0; // carry continues (1) : eg 199 + 1
             }
 
             // if we reach here, all digits were 9

@@ -23,6 +23,7 @@ Assumptions:
 - The input array is sorted in non-decreasing order.
 - The output should be printed to the console as a List of unique integers.
 */
+    // --- Better Solution ---
     public static void removeDuplicate(int[] nums) {
         List<Integer> list = new ArrayList<>();
 
@@ -40,6 +41,7 @@ Assumptions:
 
     }
 
+    // --------- Optimal Solution ----------
     public int removeDuplicates(int[] nums) {
 
         int k = 0;

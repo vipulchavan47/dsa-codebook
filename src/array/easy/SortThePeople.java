@@ -10,7 +10,7 @@ public class SortThePeople {
             int maxIndex = i;
 
             for(int j = i + 1; j < n; j++){
-                if(heights[j] > heights[maxIndex ])
+                if(heights[j] > heights[maxIndex])
                     maxIndex  = j;
             }
 

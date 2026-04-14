@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SingleNumber {
+    // ---- Better Solution -------
     public int singleNumber(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -21,6 +22,7 @@ public class SingleNumber {
 
     }
 
+    // ------- Optimal Solution -------
     public int singleNumberOptimal(int[] nums) {
         int result = 0;
         for (int num : nums) {

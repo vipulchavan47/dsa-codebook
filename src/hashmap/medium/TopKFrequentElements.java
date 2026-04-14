@@ -3,27 +3,32 @@ package hashmap.medium;
 import java.util.*;
 
 public class TopKFrequentElements {
-        public int[] topKFrequent(int[] nums, int k) {
-            Map<Integer,Integer> map = new HashMap<>();
+    // --- Better Solution ----
+    public int[] topKFrequent(int[] nums, int k) {
 
-            for(int num:nums){
-                map.put(num, map.getOrDefault(num,0)+1);
-            }
+        int n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
 
-
-            List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
-
-
-            Collections.sort(list,(a, b) -> Integer.compare(b.getValue(), a.getValue()));
-
-            int[] ans = new int[k];
-            int i = 0;
-
-            for (Map.Entry<Integer, Integer> entry : list) {
-                if (i == k) break;
-                ans[i++] = entry.getKey();
-            }
-
-            return ans;
+        for (int i = 0; i < n; i++) {
+            // store element , freq
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
         }
+
+        // Convert map to list of entries for sorting
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
+
+        // Sort list based on frequency (value) in descending order
+        Collections.sort(list, (a, b) -> Integer.compare(b.getValue(), a.getValue()));
+
+        // Pick top k elements (most frequent)
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++) {
+            // Extract the key (number) from the entry
+            result[i] = list.get(i).getKey();
+        }
+
+        return result;
+    }
+
+    // -- Optimal Solution : Min Heap (PriorityQueue) -------
 }

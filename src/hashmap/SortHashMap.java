@@ -5,10 +5,11 @@ import java.util.*;
 public class SortHashMap {
     Map<Integer, Integer> map = new HashMap<>();
 
-    List<Map.Entry<Integer, Integer>> list =
-            new ArrayList<>(map.entrySet());
+    // Convert it to list
+    List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
 
-//    Collections.sort(list, (a, b) -> b.getValue() - a.getValue());
+    // Sort the list (here we are sorting by values (K,V) )
+//    Collections.sort(list, (a, b) -> Integer.compare(b.getValue(), a.getValue());
 
 
 }
