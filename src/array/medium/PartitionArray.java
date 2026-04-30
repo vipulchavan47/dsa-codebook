@@ -55,7 +55,7 @@ public class PartitionArray {
         return array;
     }
 
-    // Better approach
+    // ------- Optimal  approach --------------
     public int[] pivotArray(int[] nums, int pivot) {
         int smallerCount = 0, equalCount = 0, greaterCount = 0;
 
@@ -79,8 +79,9 @@ public class PartitionArray {
         }
 
         // Place pivot occurrences
-        while (equalCount-- > 0) {
+        while (equalCount > 0) {
             result[index++] = pivot;
+            equalCount--;
         }
 
         // Place numbers greater than pivot

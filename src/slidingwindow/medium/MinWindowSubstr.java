@@ -1,7 +1,7 @@
-package slidingwindow;
+package slidingwindow.medium;
 
 //---   Brute force solution
-class MinWindowSubstr {
+public class MinWindowSubstr {
     public String minWindow(String s, String t) {
         int minLength = Integer.MAX_VALUE;  // Length of the smallest valid window found
         int startIndex = -1;                // Starting index of the minimum window

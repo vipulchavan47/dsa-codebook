@@ -1,4 +1,4 @@
-package sorting;
+package sorting.leetcode;
 
 public class MaximumProductOfThreeNumbers {
         public int maximumProduct(int[] nums) {

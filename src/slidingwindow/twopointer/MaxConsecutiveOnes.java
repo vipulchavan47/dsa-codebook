@@ -1,4 +1,4 @@
-package slidingwindow;
+package slidingwindow.twopointer;
 /*
     Problem Description:
     ---------------------
@@ -13,7 +13,7 @@ package slidingwindow;
     Explanation: [1,1,1,0,0,1,1,1,1,1] (flipped two 0s at indices 4 and 5)
 */
 
-class MaxConsecutiveOnes {
+public class MaxConsecutiveOnes {
 
     // ----------Brute force approach
     public int longestOnes(int[] nums, int k) {

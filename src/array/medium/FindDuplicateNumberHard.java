@@ -39,4 +39,6 @@ public class FindDuplicateNumberHard {
 
         return -1;
     }
+
+    // ----- Optimal solution ----------
 }

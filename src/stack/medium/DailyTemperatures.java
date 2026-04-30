@@ -1,4 +1,4 @@
-package array.medium;
+package stack.medium;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -40,7 +40,6 @@ public class DailyTemperatures {
         for (int i = 0; i < n; i++) {
             // While the current temp is higher than the temp at index on top of stack
             // we will keep popping the temps till we found greater temp
-            //
             while (!st.isEmpty() && temperatures[i] > temperatures[st.peek()]) {
                 int prevIndex = st.pop(); // we need the index for which we popped it from stack
 
