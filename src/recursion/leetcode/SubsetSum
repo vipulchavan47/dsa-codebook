@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+package recursion.leetcode;
+
+/*
+Given an array arr of integers, return the sums of all subsets in the list.  
+Return the sums in any order.
+*/
+
+class SubsetSum {
+    public ArrayList<Integer> subsetSums(int[] arr) {
+        // code here
+        ArrayList<Integer> ans = new ArrayList<>();
+        int sum = 0;
+        
+        findSubsets(0, arr, sum, ans);
+        
+        return ans;
+    }
+    
+    public void findSubsets(int index , int[] arr , int sum , ArrayList<Integer> list){
+        
+        if(index == arr.length){
+            list.add(sum);
+            return;
+        }
+        
+        sum += arr[index];
+        // pick current sum
+        findSubsets(index+1 , arr, sum , list);
+        
+        // backtrack
+        sum -= arr[index];
+        // do not pick current sum
+        findSubsets(index+1 , arr, sum , list);
+    }
+}
