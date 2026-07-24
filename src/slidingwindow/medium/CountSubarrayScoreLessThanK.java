@@ -1,3 +1,5 @@
+package slidingwindow.medium;
+
 class CountSubarrayScoreLessThanK {
     public long countSubarrays(int[] nums, long k) {
         long ans = 0;
