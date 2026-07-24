@@ -37,16 +37,21 @@ public class PermutationsTwo {
         if(index == arr.length){
             List<Integer> ds = new ArrayList<>();
 
+            // Add the current permutation to the answer list (curr array)
             for(int i=0; i<arr.length; i++){
                 ds.add(arr[i]);
             }
             ansList.add(ds);
             return;
         }
-
+        
+        // Try placing each element at the current index and recursively generate permutations for the next index
         for(int i=index; i<arr.length; i++){
+            // Swap the current element with the element at the current index to fix it in place
             swap(i , index, arr);
+            // Recursively generate permutations for the next index
             permutations(index+1, arr, ansList);
+            // Backtrack: undo the swap to restore the original array for the next iteration
             swap(i , index, arr);
         }
 
