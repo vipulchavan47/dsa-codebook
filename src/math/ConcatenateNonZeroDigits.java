@@ -19,7 +19,6 @@ Therefore, the answer is x * sum = 1234 * 10 = 12340.
  */
 public class ConcatenateNonZeroDigits {
         public long sumAndMultiply(int n) {
-            long ans = 0;
             int sum = 0;
             long x = 0;
 
