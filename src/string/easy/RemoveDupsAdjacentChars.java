@@ -1,4 +1,4 @@
-package stack.easy;
+package string.easy;
 /*
 You are given a string s consisting of lowercase English letters.
 A duplicate removal consists of choosing two adjacent and equal letters and removing them.
@@ -18,7 +18,6 @@ public class RemoveDupsAdjacentChars {
     public static String removeDuplicates(String s) {
         Stack<Character> st = new Stack<>();
 
-        // Loop through each character in the string
         for (char ch : s.toCharArray()) {
             // If the stack is not empty and the top of the stack equals the current character
             // That means we found a duplicate pair, so we pop the top
@@ -30,8 +29,6 @@ public class RemoveDupsAdjacentChars {
             }
         }
 
-        // Now the stack contains the final characters in order (with duplicates removed)
-        // We'll build the resulting string from those characters
         StringBuilder sb = new StringBuilder();
 
         // Traverse the stack from bottom to top and append each character
@@ -41,6 +38,26 @@ public class RemoveDupsAdjacentChars {
 
         // Return the final string with adjacent duplicates removed
         return sb.toString();
+    }
+
+    // ------- Optimal Solution --------
+     public String removeDuplicatesOptimal(String s) {
+        StringBuilder st = new StringBuilder();
+
+        for(char ch : s.toCharArray()){
+            int n = st.length();
+            // If the last character in the StringBuilder is the same as the current character
+            // that means we found a duplicate pair, so remove the last character
+            // Otherwise, append the current character to the StringBuilder
+            if(n > 0 && st.charAt(n - 1) == ch){
+                st.deleteCharAt(n - 1);
+            } 
+            else{
+                st.append(ch);
+            }
+        }
+
+        return st.toString();
     }
 
     public static void main(String[] args) {
