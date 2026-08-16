@@ -9,7 +9,6 @@ import java.util.Queue;
 
 public class BFS {
     public static List<List<Integer>> levelOrder(TreeNode root) {
-        // This will store the final level order traversal result.
         List<List<Integer>> result = new ArrayList<>();
 
         // If the tree is empty, return the empty result.
