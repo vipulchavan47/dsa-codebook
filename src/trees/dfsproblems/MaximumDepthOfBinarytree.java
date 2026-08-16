@@ -1,4 +1,4 @@
-package trees.striver;
+package trees.dfsproblems;
 import trees.TreeNode;
  
 public class MaximumDepthOfBinarytree {

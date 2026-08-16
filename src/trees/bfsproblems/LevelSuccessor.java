@@ -1,4 +1,4 @@
-package trees.easy;
+package trees.bfsproblems;
 
 import trees.TreeNode;
 

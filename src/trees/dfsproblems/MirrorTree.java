@@ -1,4 +1,4 @@
-package trees.easy;
+package trees.dfsproblems;
 
 import trees.TreeNode;
 
