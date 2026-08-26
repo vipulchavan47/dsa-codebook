@@ -22,33 +22,18 @@ The possible strings are: "abbcccc", "abbccc", "abbcc", "abbc", and "abcccc".
 
 public class FindOrignalTypedString {
     public static int possibleStringCount(String word) {
-        int ans = 1; // Start with 1 (the original string)
-        char prev = word.charAt(0);
-        int streak = 1;
+                int count = 0;
 
-        for (int i = 1; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            if (ch == prev) {
-                streak++;
-            } else {
-                // End of streak - add the extra possibilities
-                if (streak > 1) {
-                    ans += (streak - 1);
+                for(int i=1; i<word.length(); i++){
+                    if(word.charAt(i) == word.charAt(i-1)){
+                        count++;
+                    }
                 }
-                streak = 1;
-                prev = ch;
+
+                return count+1;
             }
-        }
-
-        // Handle the last streak
-        if (streak > 1) {
-            ans += (streak - 1);
-        }
-
-        return ans;
-    }
 
     public static void main(String[] args) {
-        System.out.println(possibleStringCount("aabbcccc"));
+        System.out.println(possibleStringCount("abbcccc"));
     }
 }
