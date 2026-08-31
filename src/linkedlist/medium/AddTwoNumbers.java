@@ -49,39 +49,49 @@ public class AddTwoNumbers {
         return dummy.next; // Return the next node of dummy as the result list
     }
 
+    // --------- Optimal solution ------>>>>>>>
+    // TC = O(max(n,m)) n,m are length of two lists
+    // SC = O(max(n,m))
+    public static ListNode addTwoNumbersOptimal(ListNode l1, ListNode l2) {
 
-// --------- Optimal solution ------>>>>>>>
-// TC = O(max(n,m)) n,m are length of two lists
-// SC  = O(max(n,m))
+        // Dummy node helps us easily build the result list
+        // curr always points to the last node in our result
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
 
-    public static ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0); // Dummy node to simplify result construction
-        ListNode current = dummy; // Pointer to build the result list
-        int carry = 0; // To store carry during addition
+        // Stores carry from the previous addition
+        int carry = 0;
 
-        // Iterate while either list has nodes or carry is non-zero
-        while (l1 != null || l2 != null || carry > 0) {
-            int sum = carry; // Start with carry from the previous step
+        // Continue while either list has nodes OR a carry is left
+        while (l1 != null || l2 != null || carry != 0) {
 
-            // Add values from l1 and l2, if available
-            if (l1 != null) {
-                sum += l1.val;
-                l1 = l1.next; // Move to the next node in l1
-            }
-            if (l2 != null) {
-                sum += l2.val;
-                l2 = l2.next; // Move to the next node in l2
-            }
+            // If one list is shorter, treat its missing digit as 0
+            int n1 = (l1 == null) ? 0 : l1.val;
+            int n2 = (l2 == null) ? 0 : l2.val;
 
-            // Update carry for the next step
+            // Add both digits along with carry from previous position
+            int sum = n1 + n2 + carry;
+
+            // Example: sum = 17 → carry = 1, digit = 7
             carry = sum / 10;
+            int digit = sum % 10;
 
-            // Create a new node with the current digit and move the pointer
-            current.next = new ListNode(sum % 10);
-            current = current.next;
+            // Create a node for the current digit
+            ListNode newnode = new ListNode(digit);
+
+            // Attach the new node and move curr forward
+            curr.next = newnode;
+            curr = curr.next;
+
+            // Move to the next digit in each list
+            // Only move if the list still has a node
+            if (l1 != null)
+                l1 = l1.next;
+            if (l2 != null)
+                l2 = l2.next;
         }
 
-        // Return the result list, skipping the dummy node
+        // Dummy itself is not part of the answer
         return dummy.next;
     }
 
@@ -96,7 +106,7 @@ public class AddTwoNumbers {
         System.out.println("Test case 1:");
         printList(addTwoNumbers(l1, l2)); // Brute force approach
         System.out.println();
-        printList(addTwoNumbers2(l1, l2)); // Optimal solution
+        printList(addTwoNumbersOptimal(l1, l2)); // Optimal solution
 
         // Test case 2: List 1: [5], List 2: [5]
         ListNode list1 = new ListNode(5);
@@ -105,7 +115,7 @@ public class AddTwoNumbers {
         System.out.println("Test case 2:");
         printList(addTwoNumbers(list1, list2)); // Brute force approach
         System.out.println();
-        printList(addTwoNumbers2(list1, list2)); // Optimal solution
+        printList(addTwoNumbersOptimal(list1, list2)); // Optimal solution
     }
 
     // -- helper to print list --
@@ -120,11 +130,11 @@ public class AddTwoNumbers {
 }
 
 // class ListNode {
-//    int val;
-//    ListNode next;
+// int val;
+// ListNode next;
 //
-//    ListNode(int x) {
-//        val = x;
-//        next = null;
-//    }
-//}
+// ListNode(int x) {
+// val = x;
+// next = null;
+// }
+// }
