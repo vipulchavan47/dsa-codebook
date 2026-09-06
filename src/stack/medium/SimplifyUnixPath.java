@@ -1,5 +1,8 @@
 package stack.medium;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /*
 You are given an absolute path for a Unix-style file system,
 which always begins with a slash '/'. Your task is to transform this
@@ -28,37 +31,41 @@ Input: path = "/../"
 Output: "/"
  */
 
-import java.util.Stack;
 
+/* (Simple idea)
+ split by /
+ if empty or . skip
+ if .. pop 
+ else push
+
+
+*/
 public class SimplifyUnixPath {
     public String simplifyPath(String path) {
-        // split by / (directory)
-        String[] parts = path.split("/");
-        Stack<String> stack = new Stack<>();
+        String[] str = path.split("/");
+        Deque<String> st = new ArrayDeque<>();
 
-        for (String part : parts) {
-            if (part.equals("") || part.equals(".")) {
-                // Skip empty and "."
+        for (String dir : str) {
+            if(dir.isEmpty() || dir.equals(".")){
                 continue;
-            } else if (part.equals("..")) {
-                // Pop if we can go back
-                if (!stack.isEmpty()) {
-                    stack.pop();
+            }
+
+            if(dir.equals("..")){
+                if(!st.isEmpty()){
+                    st.removeLast();
                 }
-            } else {
-                // Normal folder, add to path
-                stack.push(part);
+            } 
+            else{
+                st.addLast(dir);
             }
         }
 
-        // build the simplified path
         StringBuilder result = new StringBuilder();
-        for (String dir : stack) {
+
+        for(String dir : st){
             result.append("/").append(dir);
         }
 
-        // If result is empty, return root
         return result.length() == 0 ? "/" : result.toString();
     }
-
 }
